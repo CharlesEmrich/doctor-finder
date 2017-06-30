@@ -1,6 +1,6 @@
 {
-  "name": "Sample-Project",
-  "description": "This is a scaffold for a sample project",
+  "name": "Doctor-Finder",
+  "description": "This project will help match patients to doctors according to their ailments.",
   "main": "index.js",
   "license": "ISC",
   "homepage": "",

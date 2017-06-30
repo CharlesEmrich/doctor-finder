@@ -1,12 +1,12 @@
 {
-  "name": "Sample-Project",
+  "name": "Doctor-Finder",
   "version": "1.0.0",
-  "description": "This is a scaffold for a sample project",
+  "description": "This project will help match patients to doctors according to their ailments.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "PAIR_NAME_HERE and Charles Emrich",
+  "author": "Charles Emrich",
   "license": "ISC",
   "devDependencies": {
     "bower-files": "^4.0.0",
