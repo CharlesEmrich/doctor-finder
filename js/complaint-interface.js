@@ -1,4 +1,4 @@
-var ExampleModule = require('./../js/scripts.js').exampleModule;
+var ExampleModule = require('./../js/complaint.js').complaintModule;
 
 
 $(document).ready(function() {

@@ -9,5 +9,4 @@
 * Use gulp build to build js and css files to be included
 * Use gulp serve to launch the development server
 
-# Additional Notes
-* In the JS folder there is an example module exported, and the -interface file using it. Feel free to use these as a template, but should be replaced and the files renamed.
+Remember to include instructions for an env file.
