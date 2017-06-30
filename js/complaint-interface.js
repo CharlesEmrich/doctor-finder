@@ -18,6 +18,9 @@ var displayDoctors = function(response, medicalIssue) {
 
 var showDetails = function(response) {
   console.log(response);
+  $(`.doctors li[data-uid = ${response.data.uid}] ul.doctor-details`).empty();
+  $(`.doctors li[data-uid = ${response.data.uid}] ul.doctor-details`).append(`<li>Phone: ${response.data.practices[0].phones[0]}</li>` + 
+                             `<li>Bio: ${response.data.profile.bio}</li>`);
 };
 
 $(document).ready(function() {
