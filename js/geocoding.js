@@ -5,10 +5,10 @@ var Geocode = function() {
   this.long = 0;
 };
 
-Geocode.prototype.getLatLong = function(zip) {
+Geocode.prototype.getLatLong = function(zip, callback) {
   $.get(`http://maps.googleapis.com/maps/api/geocode/json?address=${zip}`)
-    .then((resp) => {
-      console.log(resp);
+    .then((response) => {
+      callback(response);
     })
     .fail((error) => {
       console.error(error);

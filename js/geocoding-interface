@@ -1,8 +1,0 @@
-var GeoCode = require('./../js/geocoding.js').geocodeModule;
-
-
-$(document).ready(function() {
-  var newGeo = new GeoCode();
-
-  // console.log(exampleInstance.getLatLong());
-});
