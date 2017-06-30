@@ -1,6 +1,11 @@
 var Complaint = require('./../js/complaint.js').complaintModule;
 
 var displayDoctors = function(response, medicalIssue) {
+  if (response.data.length === 0) {
+    $('.result-complaint-name').text(medicalIssue);
+    $('.doctors').text('No Doctors found. Sorry!')
+    return;
+  }
   $('.result-complaint-name').text(medicalIssue);
   $('.doctors').empty();
   response.data.forEach((element) => {
@@ -8,28 +13,26 @@ var displayDoctors = function(response, medicalIssue) {
                             `<ul class="doctor-details">` +
                             `</ul>` +
                          `</li>`
-                        );
+                       );
     $('.doctors li').last().click(() => {
       var tempComplaint = new Complaint();
       tempComplaint.GetDocDetails(element.uid, showDetails)
     });
   });
+  $('.doctor-details').hide();
 };
 
 var showDetails = function(response) {
-  console.log(response);
+  $('.doctor-details').toggle();
   $(`.doctors li[data-uid = ${response.data.uid}] ul.doctor-details`).empty();
-  $(`.doctors li[data-uid = ${response.data.uid}] ul.doctor-details`).append(`<li>Phone: ${response.data.practices[0].phones[0]}</li>` + 
-                             `<li>Bio: ${response.data.profile.bio}</li>`);
+  $(`.doctors li[data-uid = ${response.data.uid}] ul.doctor-details`).append(`<li>Phone: ${response.data.practices[0].phones[0].number}</li>` +
+                             `                                                <li>Bio: ${response.data.profile.bio}</li>`);
 };
 
 $(document).ready(function() {
   $('.complaint-form').submit((e) => {
     e.preventDefault();
+    var newComplaint = new Complaint();
     newComplaint.getDoctors($('input[name="complaint"]').val(), displayDoctors);
-
   });
-  var newComplaint = new Complaint();
-  // newComplaint.getConditions();
-  newComplaint.getDoctors($('input[name="complaint"]').val(), displayDoctors);
 });
