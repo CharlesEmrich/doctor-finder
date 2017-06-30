@@ -1,18 +1,17 @@
 var apiKey = require('./../.env').apiKey;
 
-var Complaint = function(args) {
-  this.args = args; //to be replaced with constructor arguments
+var Complaint = function() {
 };
 
-Complaint.prototype.getDoctors = function() {
-  $.get(`https://api.betterdoctor.com/2016-03-01/`)
+Complaint.prototype.getConditions = function() {
+  $.get(`https://api.betterdoctor.com/2016-03-01/conditions?user_key=${apiKey}`)
     .then((resp) => {
       console.log(resp);
     })
     .fail((error) => {
       console.error(error);
     });
-  return `this is an example prototype method`;
+  return `getDoctors issued.`;
 };
 
 exports.complaintModule = Complaint;
