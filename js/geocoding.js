@@ -10,9 +10,6 @@ var Geocode = function() {
 Geocode.prototype.getLatLong = function(zip, callback) {
   $.get(`http://maps.googleapis.com/maps/api/geocode/json?address=${zip}`)
     .then((response) => {
-      console.log(`Lat: ${response.results[0].geometry.location.lat}`);
-      console.log(`Long: ${response.results[0].geometry.location.lng}`);
-
       callback(response.results[0].geometry.location.lat,      response.results[0].geometry.location.lng, displayDoctors);
     })
     .fail((error) => {
