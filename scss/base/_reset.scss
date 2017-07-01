@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+
+  &:after, &:before {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+html, body {
+  @include size(100%);
+  overflow: hidden;
+}
+
+.container {
+  width: calc(100% - #{$container-padding * 2});
+  height: calc(100% - #{$container-padding * 2});
+  padding: $container-padding;
+}
