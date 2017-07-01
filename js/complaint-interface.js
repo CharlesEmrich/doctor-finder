@@ -29,12 +29,10 @@ var showDetails = function(response) {
                              `                                                <li>Bio: ${response.data.profile.bio}</li>`);
 };
 
+var userComplaint = null;
+
 $(document).ready(function() {
-  // $('.complaint-form').submit((e) => {
-  //   e.preventDefault();
-  //   var newComplaint = new Complaint();
-  //   newComplaint.getDoctors($('input[name="complaint"]').val(), displayDoctors);
-  // });
 });
 
 exports.displayDoctors = displayDoctors;
+exports.userComplaint = userComplaint;
