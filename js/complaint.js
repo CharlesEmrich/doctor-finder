@@ -1,7 +1,7 @@
 var apiKey = require('./../.env').apiKey;
 
-var Complaint = function() {
-  this.medicalIssue = "";
+var Complaint = function(medicalIssue) {
+  this.medicalIssue = medicalIssue;
 };
 
 Complaint.prototype.getConditions = function() {
@@ -14,9 +14,9 @@ Complaint.prototype.getConditions = function() {
     });
 };
 
-Complaint.prototype.getDoctors = function (medicalIssue, callback) {
-  this.medicalIssue = medicalIssue;
-  $.get(`https://api.betterdoctor.com/2016-03-01/doctors?query=${medicalIssue}&location=45.5231%2C-122.6765%2C%205&user_location=45.5231%2C-122.6765&skip=0&limit=20&user_key=${apiKey}`)
+Complaint.prototype.getDoctors = function (lat, long, callback) {
+  var medicalIssue = this.medicalIssue;
+  $.get(`https://api.betterdoctor.com/2016-03-01/doctors?query=${medicalIssue}&location=${lat},${long},100&skip=0&limit=20&user_key=${apiKey}`)
  .then(function(response) {
    callback(response, medicalIssue);
   })

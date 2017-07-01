@@ -51,7 +51,7 @@ An app using the BetterDoctorAPI to list nearby doctors who can treat a user's s
 
 ## Known Bugs
 
-There are no known bugs at this time.
+There are no known bugs at this time. But the current implementation of geocode API use is incomplete and the app only searches for doctors in the Portland area.
 
 ## Technologies Used
 
